@@ -1,3 +1,23 @@
 h2{
     text-align: center;
 }
+
+
+table#yc_table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th.yc_table_header{
+    background-color: yellow;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+
+td.yc_table_data{
+    background-color: pink;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
