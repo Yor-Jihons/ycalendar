@@ -2,6 +2,10 @@ h2{
     text-align: center;
 }
 
+h2#yc_title{
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px;
+}
 
 table#yc_table{
     margin: 0 auto;
@@ -15,8 +19,15 @@ th.yc_table_header{
     text-align: center;
 }
 
-td.yc_table_data{
+td.yc_unchecked_day{
     background-color: pink;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+
+td.yc_checked_day{
+    background-color: red;
     border: 1px solid black;
     width: 50px;
     text-align: center;

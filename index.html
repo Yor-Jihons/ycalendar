@@ -14,23 +14,90 @@
     <h1>The ycalendar test</h1>
 
     <div id="ycalendar">
-        <h2><a onclick="PrevButton_Click(2022,9)">◀</a> 2022/10 <a onclick="NextButton_Click(2022,11)">▶</a></h2>
+        <h2 id="yc_title"><a onclick="prevButton_Click(2022,9)">◀</a> 2022/10 <a onclick="nextButton_Click(2022,11)">▶</a></h2>
 
         <table id="yc_table">
             <tr><th class="yc_table_header">Sun</th><th class="yc_table_header">Mon</th><th class="yc_table_header">Thue</th>
                 <th class="yc_table_header">Wed</th><th class="yc_table_header">Thu</th><th class="yc_table_header">Fri</th>
                 <th class="yc_table_header">Sat</th></tr>
 
-            <tr><td class="yc_table_data">1</td><td class="yc_table_data">2</td><td class="yc_table_data">3</td>
-                <td class="yc_table_data">4</td><td class="yc_table_data">5</td><td class="yc_table_data">6</td>
-                <td class="yc_table_data">7</td></tr>
+            <tr>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,1)">
+                        1
+                    </div>
+                </td>
+                <td class="yc_checked_day">
+                    <div class="yc_unchecked_day" ondblclick="ycalender_DoubleClick(2022,9,2)">
+                        2
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,3)">
+                        3
+                    </div>
+                </td>
+                <td class="yc_checked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,4)">
+                        4
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,5)">
+                        5
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,6)">
+                        6
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,7)">
+                        7
+                    </div>
+                </td>
+            </tr>
 
-            <tr><td class="yc_table_data">8</td><td class="yc_table_data">9</td><td class="yc_table_data">10</td>
-                <td class="yc_table_data">11</td><td class="yc_table_data">12</td><td class="yc_table_data">13</td>
-                <td class="yc_table_data">14</td></tr>
+            <tr>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,8)">
+                        8
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,9)">
+                        9
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,10)">
+                        10
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,11)">
+                        11
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,12)">
+                        12
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,13)">
+                        13
+                    </div>
+                </td>
+                <td class="yc_unchecked_day">
+                    <div ondblclick="ycalender_DoubleClick(2022,9,14)">
+                        14
+                    </div>
+                </td>
+            </tr>
         </table>
     </div>
-
 
     <script src="./ycalendar/ycalendar.js"></script>
     <link rel="stylesheet" href="./ycalendar/yc_styles.css" />
