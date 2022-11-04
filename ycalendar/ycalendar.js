@@ -8,10 +8,12 @@ calendar.innerHTML = text;
 
 function prevButton_Click( year, month ){
     alert( "PrevButton_Click" + year + "年" + month + "月" );
+    // TODO: 先月に移動
 }
 
 function nextButton_Click( year, month ){
     alert( "NextButton_Click" + year + "年" + month + "月" );
+    // TODO: 翌月に移動
 }
 
 function ycalender_DoubleClick( year, month, day ){
