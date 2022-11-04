@@ -6,10 +6,14 @@ text = "<h2><a onclick='PrevButton_Click(2022,1)'>◀</a> 2022/2 <a onclick='Nex
 calendar.innerHTML = text;
 */
 
-function PrevButton_Click( year, month ){
+function prevButton_Click( year, month ){
     alert( "PrevButton_Click" + year + "年" + month + "月" );
 }
 
-function NextButton_Click( year, month ){
+function nextButton_Click( year, month ){
     alert( "NextButton_Click" + year + "年" + month + "月" );
+}
+
+function ycalender_DoubleClick( year, month, day ){
+    alert( "ycalender_DoubleClick on " + year + "年" + month + "月" + day + "日" );
 }
