@@ -6,6 +6,32 @@ text = "<h2><a onclick='PrevButton_Click(2022,1)'>◀</a> 2022/2 <a onclick='Nex
 calendar.innerHTML = text;
 */
 
+class YC_Event{
+    onDoubleClicked( date, isChecked ){}
+}
+
+class YCalendar{
+    #event;
+
+    constructor(){
+        this.#event = null;
+    }
+
+    set event( yc_event ){
+        this.#event = yc_event;
+    }
+
+    draw(){
+
+    }
+
+    onDoubleClicked( date, isChecked ){
+        if( this.#event != null ){
+            this.#event.onDoubleClicked( date, isChecked );
+        }
+    }
+}
+
 function prevButton_Click( year, month ){
     alert( "PrevButton_Click" + year + "年" + month + "月" );
     // TODO: 先月に移動
