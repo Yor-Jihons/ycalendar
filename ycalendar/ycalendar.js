@@ -22,7 +22,7 @@ class YCalendar{
     }
 
     draw(){
-
+        
     }
 
     onDoubleClicked( date, isChecked ){
@@ -31,6 +31,8 @@ class YCalendar{
         }
     }
 }
+
+const ycalendar = new YCalendar();
 
 function prevButton_Click( year, month ){
     alert( "PrevButton_Click" + year + "年" + month + "月" );
