@@ -4,3 +4,6 @@
 @ 「▶」等を押すと次に移動したりする処理(再描画)
 @ チェック付けたい場所を追加する/初期化する
 
+<h2 id="yc_title">
+<a onclick="prevButton_Click(2022,9)">◀</a> 2022/10 <a onclick="nextButton_Click(2022,11)">▶</a>
+</h2>
