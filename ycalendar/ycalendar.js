@@ -66,7 +66,11 @@ class YCalendar{
         }
 
         for( var i = 0; i < (lastDayInMonth); i++ ){
-            tmp1 += '<td class="yc_unchecked_day">' + (i + 1) + '</td>\n';
+            tmp1 += '<td class="yc_unchecked_day">';
+            tmp1 += '<div ondblclick="ycalender_DoubleClick(' + mainDate_first.getFullYear() + ',' + (mainDate_first.getMonth() + 1) + ',' + (i + 1) + ')">';
+            tmp1 += (i + 1);
+            tmp1 += '</div>';
+            tmp1 += '</td>';
             if( nCell % MAX_DAY_OF_WEEK == 0 ){ tmp1 += "</tr>\n<tr>\n"; }
             nCell++;
         }
