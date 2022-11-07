@@ -34,6 +34,10 @@ class YCalendar{
         text += mainDate_first.getFullYear() + '/' + (mainDate_first.getMonth() + 1);
         text += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
 
+        text += '<table id="yc_table">';
+        text += '<tr><th class="yc_table_header">Sun</th><th class="yc_table_header">Mon</th><th class="yc_table_header">Thue</th>';
+        text += '<th class="yc_table_header">Wed</th><th class="yc_table_header">Thu</th><th class="yc_table_header">Fri</th><th class="yc_table_header">Sat</th></tr></table>';
+
         calendar.innerHTML = text;
     }
 
