@@ -78,14 +78,16 @@
     <link rel="stylesheet" href="./customized_yc_sytles.css" />
 
     <script>
-        ycalendar.draw( new Date() );
+        //ycalendar.draw( new Date() );
 
         var manager = new DateExManager();
         manager.add( new DateEx( 2022, 11, 7, false ) );
         manager.add( new DateEx( 2022, 11, 8, true ) );
-        alert( manager.has( new DateEx( 2022, 11, 8, true ) ) );
-        manager.at( new DateEx( 2022, 11, 8, true ) ).setChecked( false );
-        manager.print();
+        //alert( manager.has( new DateEx( 2022, 11, 8, true ) ) );
+        //manager.at( new DateEx( 2022, 11, 8, true ) ).setChecked( false );
+        //manager.print();
+
+        ycalendar.draw( new Date( 2022, 11, 1 ), manager );
     </script>
 </body>
 </html>

@@ -3,6 +3,14 @@
 let calendar = document.getElementById( "ycalendar" );
 
 
+function createClassName( dateExManager, targetDate ){
+    if( dateExManager == undefined ) return "yc_unchecked_day";
+    var target = dateExManager.at( targetDate );
+    if( target != null && target.isChecked() == true ) return "yc_checked_day";
+return "yc_unchecked_day";
+}
+
+
 class YC_Event{
     onDoubleClicked( date, isChecked ){}
 }
@@ -18,7 +26,7 @@ class YCalendar{
         this.#event = yc_event;
     }
 
-    draw( date ){
+    draw( date, dateExManager ){
         // 現在の日付
         // 先月
         // 今月
@@ -68,7 +76,8 @@ class YCalendar{
         }
 
         for( var i = 0; i < (lastDayInMonth); i++ ){
-            tmp1 += '<td class="yc_unchecked_day">';
+            const classname = createClassName( dateExManager, new DateEx( mainDate_first.getFullYear(), mainDate_first.getMonth(), i + 1 ) );
+            tmp1 += '<td class="' + classname + '">';
             tmp1 += '<div ondblclick="ycalender_DoubleClick(' + mainDate_first.getFullYear() + ',' + (mainDate_first.getMonth() + 1) + ',' + (i + 1) + ')">';
             tmp1 += (i + 1);
             tmp1 += '</div>';
@@ -105,6 +114,7 @@ class DateEx{
     constructor( year, month, day, isChecked ){
         this.#date      = new Date( year, month, day, 1, 1, 1, 1 );
         this.#isChecked = isChecked;
+        if( this.#isChecked == undefined ) this.#isChecked = false;
     }
 
     equals( d ){
@@ -151,6 +161,11 @@ class DateExManager{
     return null;
     }
 
+    /**
+     * 
+     * @param {*} target the object of the class DateEx, which you want to search.
+     * @returns Returns true if this object has the target, otherwise return false.
+     */
     has( target ){
         return(this.at( target ) == null ? false : true);
     }
