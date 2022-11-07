@@ -1,12 +1,13 @@
-
 h2#yc_title{
     text-align: center;
     margin: 0 auto;
+    color: yellow;
     padding: 10px 10px 10px 10px;
 }
 
 table#yc_table{
     margin: 0 auto;
+    background-color: white;
     border-collapse: collapse;
 }
 
@@ -18,7 +19,7 @@ th.yc_table_header{
 }
 
 td.yc_unchecked_day{
-    background-color: pink;
+    background-color: white;
     border: 1px solid black;
     width: 50px;
     text-align: center;
