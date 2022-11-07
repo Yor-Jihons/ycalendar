@@ -36,7 +36,50 @@ class YCalendar{
 
         text += '<table id="yc_table">';
         text += '<tr><th class="yc_table_header">Sun</th><th class="yc_table_header">Mon</th><th class="yc_table_header">Thue</th>';
-        text += '<th class="yc_table_header">Wed</th><th class="yc_table_header">Thu</th><th class="yc_table_header">Fri</th><th class="yc_table_header">Sat</th></tr></table>';
+        text += '<th class="yc_table_header">Wed</th><th class="yc_table_header">Thu</th><th class="yc_table_header">Fri</th><th class="yc_table_header">Sat</th></tr>';
+
+        // 1. mainDate_firstの曜日を取得
+        // 2. mainDateの月末を取得
+        // 3. 1stから(2)までを繰り返す
+        //     3.1. テンプレートに埋め込んで表示
+
+        let beginDayOfWeek = mainDate_first.getDay();
+        let nCell = 1;
+
+        let tmp1 = "";
+        tmp1 += "<tr>\n";
+
+        const MAX_DAY_OF_WEEK = 7;
+
+        const NUM_OF_EMPTY_CELL = beginDayOfWeek;
+
+        const MAX_CELL = 42;
+
+        let lastDayInMonth = mainDate_last.getDate();
+
+        let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
+
+        for( var i = 0; i < NUM_OF_EMPTY_CELL; i++ ){
+            tmp1 += '<td class="yc_unchecked_day">&nbsp;</td>\n';
+            if( nCell % MAX_DAY_OF_WEEK == 0 ) tmp1 += "</tr>\n<tr>\n";
+            nCell++;
+        }
+
+        for( var i = 0; i < (lastDayInMonth); i++ ){
+            tmp1 += '<td class="yc_unchecked_day">' + (i + 1) + '</td>\n';
+            if( nCell % MAX_DAY_OF_WEEK == 0 ){ tmp1 += "</tr>\n<tr>\n"; }
+            nCell++;
+        }
+
+        for( var i = 0; i < num_of_tail_cell; i++ ){
+            tmp1 += '<td class="yc_unchecked_day">&nbsp;</td>\n';
+            if( nCell % MAX_DAY_OF_WEEK == 0 ) tmp1 += "</tr>\n<tr>\n";
+            nCell++;
+        }
+
+        text += tmp1;
+
+        text += "</table>";
 
         calendar.innerHTML = text;
     }
