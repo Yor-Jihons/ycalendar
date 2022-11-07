@@ -1,3 +1,5 @@
+"use strict";
+
 let calendar = document.getElementById( "ycalendar" );
 
 
@@ -92,6 +94,73 @@ class YCalendar{
         if( this.#event != null ){
             this.#event.onDoubleClicked( date, isChecked );
         }
+    }
+}
+
+class DateEx{
+
+    #date;
+    #isChecked;
+
+    constructor( year, month, day, isChecked ){
+        this.#date      = new Date( year, month, day, 1, 1, 1, 1 );
+        this.#isChecked = isChecked;
+    }
+
+    equals( d ){
+        if( this.#date.getFullYear() == d.#date.getFullYear()
+        && this.#date.getMonth() == d.#date.getMonth()
+        && this.#date.getDate() == d.#date.getDate() ) return true;
+    return false;
+    }
+
+    isChecked(){
+        return this.#isChecked;
+    }
+
+    setChecked( status ){
+        this.#isChecked = status;
+    }
+
+    toString(){
+        return this.#date.toDateString() + ", checked = " + this.#isChecked;
+    }
+}
+
+class DateExManager{
+    #dateExs;
+
+    constructor(){
+        this.#dateExs = new Array();
+    }
+
+    add( d ){
+        this.#dateExs.push( d );
+    }
+
+    clear(){
+        this.#dateExs.splice( 0 );
+    }
+
+    at( target ){
+        for( let i = 0; i < this.#dateExs.length; i++ ){
+            if( this.#dateExs[i].equals( target ) == true ){
+                return this.#dateExs[i];
+            }
+        }
+    return null;
+    }
+
+    has( target ){
+        return(this.at( target ) == null ? false : true);
+    }
+
+    print(){
+        var txt = "";
+        for( let i = 0; i < this.#dateExs.length; i++ ){
+            txt += this.#dateExs[i].toString() + "\n";
+        }
+        alert( txt );
     }
 }
 
