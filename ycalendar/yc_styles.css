@@ -26,7 +26,7 @@ td.yc_unchecked_day{
 }
 
 td.yc_checked_day{
-    background-color: red;
+    background-color: lightgreen;
     border: 1px solid black;
     width: 50px;
     text-align: center;

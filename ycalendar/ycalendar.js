@@ -114,7 +114,7 @@ class DateEx{
     constructor( year, month, day, isChecked ){
         this.#date      = new Date( year, month, day, 1, 1, 1, 1 );
         this.#isChecked = isChecked;
-        if( this.#isChecked == undefined ) this.#isChecked = false;
+        if( this.#isChecked == undefined ) this.#isChecked = true;
     }
 
     equals( d ){
