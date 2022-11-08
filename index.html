@@ -80,16 +80,13 @@
     <script>
         ycalendar.draw( new Date() );
 
-        var manager = new DateExManager();
-        manager.add( new DateEx( 2022, 10, 7 ) );
-        manager.add( new DateEx( 2022, 10, 8 ) );
-        //alert( manager.has( new DateEx( 2022, 11, 8, true ) ) );
-        //manager.at( new DateEx( 2022, 11, 8, true ) ).setChecked( false );
-        //manager.print();
+        var checkedDateList = new CheckDateList();
+        checkedDateList.add( new CheckDateEx( 2022, 10, 7 ) );
+        checkedDateList.add( new CheckDateEx( 2022, 10, 8 ) );
 
         //manager.clear();
 
-        ycalendar.draw( new Date( 2022, 10, 1 ), manager );
+        ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
     </script>
 </body>
 </html>

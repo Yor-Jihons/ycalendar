@@ -5,8 +5,7 @@ let calendar = document.getElementById( "ycalendar" );
 
 function createClassName( dateExManager, targetDate ){
     if( dateExManager == undefined ) return "yc_unchecked_day";
-    var target = dateExManager.at( targetDate );
-    if( target != null && target.isChecked() == true ) return "yc_checked_day";
+    if( dateExManager.has( targetDate ) == true ) return "yc_checked_day";
 return "yc_unchecked_day";
 }
 
@@ -76,7 +75,7 @@ class YCalendar{
         }
 
         for( var i = 0; i < (lastDayInMonth); i++ ){
-            const classname = createClassName( dateExManager, new DateEx( mainDate_first.getFullYear(), mainDate_first.getMonth(), i + 1 ) );
+            const classname = createClassName( dateExManager, new CheckDateEx( mainDate_first.getFullYear(), mainDate_first.getMonth(), i + 1 ) );
             tmp1 += '<td class="' + classname + '">';
             tmp1 += '<div ondblclick="ycalender_DoubleClick(' + mainDate_first.getFullYear() + ',' + (mainDate_first.getMonth() + 1) + ',' + (i + 1) + ')">';
             tmp1 += (i + 1);
@@ -106,15 +105,12 @@ class YCalendar{
     }
 }
 
-class DateEx{
+class CheckDateEx{
 
     #date;
-    #isChecked;
 
-    constructor( year, month, day, isChecked ){
+    constructor( year, month, day ){
         this.#date      = new Date( year, month, day, 1, 1, 1, 1 );
-        this.#isChecked = isChecked;
-        if( this.#isChecked == undefined ) this.#isChecked = true;
     }
 
     equals( d ){
@@ -124,20 +120,12 @@ class DateEx{
     return false;
     }
 
-    isChecked(){
-        return this.#isChecked;
-    }
-
-    setChecked( status ){
-        this.#isChecked = status;
-    }
-
     toString(){
-        return this.#date.toDateString() + ", checked = " + this.#isChecked;
+        return this.#date.toDateString();
     }
 }
 
-class DateExManager{
+class CheckDateList{
     #dateExs;
 
     constructor(){
