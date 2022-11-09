@@ -31,9 +31,23 @@
         checkedDateList.add( new CheckDateEx( 2022, 10, 7 ) );
         checkedDateList.add( new CheckDateEx( 2022, 10, 8 ) );
 
+        class YC_Event_Extended extends YC_Event{
+            onDoubleClicked( year, month, day ){
+                alert( "EVENT: ycalender_DoubleClick on " + year + "/" + month + "/" + day );
+            }
+        }
+
+        let event = new YC_Event_Extended();
+
+        ycalendar.event = event;
+
         //manager.clear();
 
         ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
+
+        // alert( "ycalender_DoubleClick on " + year + "年" + month + "月" + day + "日" );
+
+        
     </script>
 </body>
 </html>
