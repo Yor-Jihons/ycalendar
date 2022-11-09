@@ -14,6 +14,63 @@ class YC_Event{
     onDoubleClicked( year, month, day ){}
 }
 
+class TableCreator{
+
+    static #MAX_DAY_OF_WEEK = 7;
+
+    #cellCounter;
+
+    constructor(){
+        this.#cellCounter = 1;
+    }
+
+    createTitleHTMLString( prevDate, mainDate, nextDate ){
+        var titleHtml = "";
+        titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
+        titleHtml += mainDate.getFullYear() + '/' + (mainDate.getMonth() + 1);
+        titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
+    return titleHtml;
+    }
+
+    createTableHeaderHtmlString(){
+        var tableHeaderHtml = "";
+        tableHeaderHtml += '<table id="yc_table">';
+        tableHeaderHtml += '<tr><th class="yc_table_header">Sun</th><th class="yc_table_header">Mon</th><th class="yc_table_header">Thue</th>';
+        tableHeaderHtml += '<th class="yc_table_header">Wed</th><th class="yc_table_header">Thu</th><th class="yc_table_header">Fri</th><th class="yc_table_header">Sat</th></tr>';
+        tableHeaderHtml += '<tr>';
+    return tableHeaderHtml;
+    }
+
+    createEmptyCells( max ){
+        let txt = "";
+        for( var i = 0; i < max; i++ ){
+            txt += '<td class="yc_unchecked_day">&nbsp;</td>';
+            if( this.#cellCounter % TableCreator.#MAX_DAY_OF_WEEK == 0 ) txt += "</tr><tr>";
+            this.#cellCounter++;
+        }
+    return txt;
+    }
+
+    createMainCells( mainDate, lastDayInMonth, dateExManager ){
+        let txt = "";
+        for( var i = 0; i < lastDayInMonth; i++ ){
+            const classname = createClassName( dateExManager, new CheckDateEx( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
+            txt += '<td class="' + classname + '">';
+            txt += '<div ondblclick="ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
+            txt += (i + 1);
+            txt += '</div>';
+            txt += '</td>';
+            if( this.#cellCounter % TableCreator.#MAX_DAY_OF_WEEK == 0 ) txt += "</tr><tr>";
+            this.#cellCounter++;
+        }
+    return txt;
+    }
+
+    createTableFooterHtmlString(){
+        return "</table>";
+    }
+}
+
 class YCalendar{
     #event;
 
@@ -21,14 +78,11 @@ class YCalendar{
         this.#event = null;
     }
 
-    set event( yc_event ){
+    setEvent( yc_event ){
         this.#event = yc_event;
     }
 
     draw( date, dateExManager ){
-        // 現在の日付
-        // 先月
-        // 今月
         let prevDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
         prevDate.setMonth( date.getMonth() - 1 );
 
@@ -38,64 +92,26 @@ class YCalendar{
         let nextDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
         nextDate.setMonth( date.getMonth() + 1 );
 
-        var text = "";
-        text += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
-        text += mainDate_first.getFullYear() + '/' + (mainDate_first.getMonth() + 1);
-        text += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
+        const tableCreator = new TableCreator();
 
-        text += '<table id="yc_table">';
-        text += '<tr><th class="yc_table_header">Sun</th><th class="yc_table_header">Mon</th><th class="yc_table_header">Thue</th>';
-        text += '<th class="yc_table_header">Wed</th><th class="yc_table_header">Thu</th><th class="yc_table_header">Fri</th><th class="yc_table_header">Sat</th></tr>';
+        let htmlText = "";
+        htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
 
-        // 1. mainDate_firstの曜日を取得
-        // 2. mainDateの月末を取得
-        // 3. 1stから(2)までを繰り返す
-        //     3.1. テンプレートに埋め込んで表示
+        htmlText += tableCreator.createTableHeaderHtmlString();
 
-        let beginDayOfWeek = mainDate_first.getDay();
-        let nCell = 1;
+        const NUM_OF_EMPTY_CELL = mainDate_first.getDay();
+        htmlText += tableCreator.createEmptyCells( NUM_OF_EMPTY_CELL );
 
-        let tmp1 = "";
-        tmp1 += "<tr>\n";
+        const lastDayInMonth   = mainDate_last.getDate();
+        htmlText += tableCreator.createMainCells( mainDate_first, lastDayInMonth, dateExManager );
 
-        const MAX_DAY_OF_WEEK = 7;
-
-        const NUM_OF_EMPTY_CELL = beginDayOfWeek;
-
-        const MAX_CELL = 42;
-
-        let lastDayInMonth = mainDate_last.getDate();
-
+        const MAX_CELL       = 42;
         let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
+        htmlText += tableCreator.createEmptyCells( num_of_tail_cell );
 
-        for( var i = 0; i < NUM_OF_EMPTY_CELL; i++ ){
-            tmp1 += '<td class="yc_unchecked_day">&nbsp;</td>\n';
-            if( nCell % MAX_DAY_OF_WEEK == 0 ) tmp1 += "</tr>\n<tr>\n";
-            nCell++;
-        }
+        htmlText += tableCreator.createTableFooterHtmlString();
 
-        for( var i = 0; i < (lastDayInMonth); i++ ){
-            const classname = createClassName( dateExManager, new CheckDateEx( mainDate_first.getFullYear(), mainDate_first.getMonth(), i + 1 ) );
-            tmp1 += '<td class="' + classname + '">';
-            tmp1 += '<div ondblclick="ycalender_DoubleClick(' + mainDate_first.getFullYear() + ',' + (mainDate_first.getMonth() + 1) + ',' + (i + 1) + ')">';
-            tmp1 += (i + 1);
-            tmp1 += '</div>';
-            tmp1 += '</td>';
-            if( nCell % MAX_DAY_OF_WEEK == 0 ){ tmp1 += "</tr>\n<tr>\n"; }
-            nCell++;
-        }
-
-        for( var i = 0; i < num_of_tail_cell; i++ ){
-            tmp1 += '<td class="yc_unchecked_day">&nbsp;</td>\n';
-            if( nCell % MAX_DAY_OF_WEEK == 0 ) tmp1 += "</tr>\n<tr>\n";
-            nCell++;
-        }
-
-        text += tmp1;
-
-        text += "</table>";
-
-        calendar.innerHTML = text;
+        calendar.innerHTML = htmlText;
     }
 
     onDoubleClicked( year, month, day ){
