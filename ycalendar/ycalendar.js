@@ -11,7 +11,7 @@ return "yc_unchecked_day";
 
 
 class YC_Event{
-    onDoubleClicked( date, isChecked ){}
+    onDoubleClicked( year, month, day ){}
 }
 
 class YCalendar{
@@ -98,9 +98,9 @@ class YCalendar{
         calendar.innerHTML = text;
     }
 
-    onDoubleClicked( date, isChecked ){
+    onDoubleClicked( year, month, day ){
         if( this.#event != null ){
-            this.#event.onDoubleClicked( date, isChecked );
+            this.#event.onDoubleClicked( year, month, day );
         }
     }
 }
@@ -178,5 +178,5 @@ function nextButton_Click( year, month ){
 }
 
 function ycalender_DoubleClick( year, month, day ){
-    alert( "ycalender_DoubleClick on " + year + "年" + month + "月" + day + "日" );
+    ycalendar.onDoubleClicked( year, month, day );
 }
