@@ -38,7 +38,7 @@
         checkedDateList.add( new window.NameSpace1.CheckDateEx( 2022, 10, 7 ) );
         checkedDateList.add( new window.NameSpace1.CheckDateEx( 2022, 10, 8 ) );
 
-        class YC_Event_Extended extends YC_Event{
+        class YC_Event_Extended extends window.NameSpace1.YC_Event{
             onDoubleClicked( year, month, day ){
                 alert( "EVENT: ycalender_DoubleClick on " + year + "/" + month + "/" + day );
             }
