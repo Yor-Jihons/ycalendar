@@ -1,9 +1,9 @@
 "use strict";
 
 (function(){
-    window.NameSpace1 = window.NameSpace1 || {};
+    window.YCalendars = window.YCalendars || {};
 
-    window.NameSpace1.CheckDateEx = class{
+    window.YCalendars.CheckDateEx = class{
         #date;
 
         constructor( year, month, day ){

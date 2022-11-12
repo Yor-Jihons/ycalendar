@@ -1,13 +1,13 @@
 "use strict";
 
 (function(){
-    window.NameSpace1 = window.NameSpace1 || {};
+    window.YCalendars = window.YCalendars || {};
 
     /**
     * The Event for ycalendar.
     * If you want to double click, implement the method onDoubleClicked.
     */
-    window.NameSpace1.YC_Event = class{
+    window.YCalendars.YC_Event = class{
         /**
         * The event for ycalendar.
         * If some cells double-clicked, this event will run.

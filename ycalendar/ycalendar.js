@@ -2,9 +2,9 @@
 
 
 (function(){
-    window.NameSpace1 = window.NameSpace1 || {};
+    window.YCalendars = window.YCalendars || {};
 
-    window.NameSpace1.YCalendar = class{
+    window.YCalendars.YCalendar = class{
         #event;
 
         constructor(){
@@ -25,7 +25,7 @@
             let nextDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
             nextDate.setMonth( date.getMonth() + 1 );
 
-            const tableCreator = new window.NameSpace1.TableCreator();
+            const tableCreator = new window.YCalendars.TableCreator();
 
             let htmlText = "";
             htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
@@ -44,7 +44,7 @@
 
             htmlText += tableCreator.createTableFooterHtmlString();
 
-            window.NameSpace1.calendar.innerHTML = htmlText;
+            window.YCalendars.calendar.innerHTML = htmlText;
         }
 
         onDoubleClicked( year, month, day ){
