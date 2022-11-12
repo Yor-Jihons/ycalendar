@@ -35,8 +35,8 @@
         window.NameSpace1.ycalendar.draw( new Date() );
 
         var checkedDateList = new CheckDateList();
-        checkedDateList.add( new CheckDateEx( 2022, 10, 7 ) );
-        checkedDateList.add( new CheckDateEx( 2022, 10, 8 ) );
+        checkedDateList.add( new window.NameSpace1.CheckDateEx( 2022, 10, 7 ) );
+        checkedDateList.add( new window.NameSpace1.CheckDateEx( 2022, 10, 8 ) );
 
         class YC_Event_Extended extends YC_Event{
             onDoubleClicked( year, month, day ){
@@ -50,9 +50,6 @@
 
         window.NameSpace1.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 
-        // alert( "ycalender_DoubleClick on " + year + "年" + month + "月" + day + "日" );
-
-        
     </script>
 </body>
 </html>
