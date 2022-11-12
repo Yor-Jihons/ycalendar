@@ -11,7 +11,7 @@
     /**
     * The main object of the class YCalendar.
     */
-    window.NameSpace1.ycalendar = new YCalendar();
+    window.NameSpace1.ycalendar = new window.NameSpace1.YCalendar();
 
     /**
     * The event for prevButton click.
