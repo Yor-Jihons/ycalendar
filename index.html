@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="./customized_yc_sytles.css" />
 
     <script>
-        ycalendar.draw( new Date() );
+        window.NameSpace1.ycalendar.draw( new Date() );
 
         var checkedDateList = new CheckDateList();
         checkedDateList.add( new CheckDateEx( 2022, 10, 7 ) );
@@ -44,11 +44,11 @@
             }
         }
 
-        ycalendar.setEvent( new YC_Event_Extended() );
+        window.NameSpace1.ycalendar.setEvent( new YC_Event_Extended() );
 
         //manager.clear();
 
-        ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
+        window.NameSpace1.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 
         // alert( "ycalender_DoubleClick on " + year + "年" + month + "月" + day + "日" );
 
