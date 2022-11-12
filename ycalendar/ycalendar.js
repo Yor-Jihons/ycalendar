@@ -21,7 +21,7 @@ class YCalendar{
         let nextDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
         nextDate.setMonth( date.getMonth() + 1 );
 
-        const tableCreator = new TableCreator();
+        const tableCreator = new window.NameSpace1.TableCreator();
 
         let htmlText = "";
         htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
