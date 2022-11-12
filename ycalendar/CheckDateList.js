@@ -2,9 +2,9 @@
 
 
 (function(){
-    window.NameSpace1 = window.NameSpace1 || {};
+    window.YCalendars = window.YCalendars || {};
 
-    window.NameSpace1.CheckDateList = class{
+    window.YCalendars.CheckDateList = class{
         #dateExs;
 
         constructor(){

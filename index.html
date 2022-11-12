@@ -32,23 +32,23 @@
     <link rel="stylesheet" href="./customized_yc_sytles.css" />
 
     <script>
-        window.NameSpace1.ycalendar.draw( new Date() );
+        window.YCalendars.ycalendar.draw( new Date() );
 
-        var checkedDateList = new window.NameSpace1.CheckDateList();
-        checkedDateList.add( new window.NameSpace1.CheckDateEx( 2022, 10, 7 ) );
-        checkedDateList.add( new window.NameSpace1.CheckDateEx( 2022, 10, 8 ) );
+        var checkedDateList = new window.YCalendars.CheckDateList();
+        checkedDateList.add( new window.YCalendars.CheckDateEx( 2022, 10, 7 ) );
+        checkedDateList.add( new window.YCalendars.CheckDateEx( 2022, 10, 8 ) );
 
-        class YC_Event_Extended extends window.NameSpace1.YC_Event{
+        class YC_Event_Extended extends window.YCalendars.YC_Event{
             onDoubleClicked( year, month, day ){
                 alert( "EVENT: ycalender_DoubleClick on " + year + "/" + month + "/" + day );
             }
         }
 
-        window.NameSpace1.ycalendar.setEvent( new YC_Event_Extended() );
+        window.YCalendars.ycalendar.setEvent( new YC_Event_Extended() );
 
-        //manager.clear();
+        // checkedDateList.clear();
 
-        window.NameSpace1.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
+        window.YCalendars.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 
     </script>
 </body>

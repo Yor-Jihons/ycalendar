@@ -1,9 +1,9 @@
 "use strict";
 
 (function(){
-    window.NameSpace1 = window.NameSpace1 || {};
+    window.YCalendars = window.YCalendars || {};
 
-    window.NameSpace1.TableCreator = class{
+    window.YCalendars.TableCreator = class{
 
         static #MAX_DAY_OF_WEEK = 7;
 
@@ -15,9 +15,9 @@
 
         createTitleHTMLString( prevDate, mainDate, nextDate ){
             var titleHtml = "";
-            titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="window.NameSpace1.prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
+            titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="window.YCalendars.prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
             titleHtml += mainDate.getFullYear() + '/' + (mainDate.getMonth() + 1);
-            titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="window.NameSpace1.nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
+            titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="window.YCalendars.nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
         return titleHtml;
         }
 
@@ -34,7 +34,7 @@
             let txt = "";
             for( var i = 0; i < max; i++ ){
                 txt += '<td class="yc_unchecked_day">&nbsp;</td>';
-                if( this.#cellCounter % window.NameSpace1.TableCreator.#MAX_DAY_OF_WEEK == 0 ) txt += "</tr><tr>";
+                if( this.#cellCounter % window.YCalendars.TableCreator.#MAX_DAY_OF_WEEK == 0 ) txt += "</tr><tr>";
                 this.#cellCounter++;
             }
         return txt;
@@ -43,13 +43,13 @@
         createMainCells( mainDate, lastDayInMonth, checkedDateList ){
             let txt = "";
             for( var i = 0; i < lastDayInMonth; i++ ){
-                const classname = window.NameSpace1.createClassName( checkedDateList, new window.NameSpace1.CheckDateEx( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
+                const classname = window.YCalendars.createClassName( checkedDateList, new window.YCalendars.CheckDateEx( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
                 txt += '<td class="' + classname + '">';
-                txt += '<div ondblclick="window.NameSpace1.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
+                txt += '<div ondblclick="window.YCalendars.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
                 txt += (i + 1);
                 txt += '</div>';
                 txt += '</td>';
-                if( this.#cellCounter % window.NameSpace1.TableCreator.#MAX_DAY_OF_WEEK == 0 ) txt += "</tr><tr>";
+                if( this.#cellCounter % window.YCalendars.TableCreator.#MAX_DAY_OF_WEEK == 0 ) txt += "</tr><tr>";
                 this.#cellCounter++;
             }
         return txt;
