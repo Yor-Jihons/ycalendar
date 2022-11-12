@@ -40,7 +40,7 @@ class YCalendar{
 
         htmlText += tableCreator.createTableFooterHtmlString();
 
-        calendar.innerHTML = htmlText;
+        window.NameSpace1.calendar.innerHTML = htmlText;
     }
 
     onDoubleClicked( year, month, day ){
