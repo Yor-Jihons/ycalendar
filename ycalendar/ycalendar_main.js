@@ -31,14 +31,14 @@
         window.NameSpace1.ycalendar.draw( new Date( year, month, 1 ) );
     }
 
-})();
+    /**
+    * The event for the cells doubleclick.
+    * @param {*} year The target year.
+    * @param {*} month The target month.
+    * @param {*} day The target date.
+    */
+    window.NameSpace1.ycalender_DoubleClick = function( year, month, day ){
+        window.NameSpace1.ycalendar.onDoubleClicked( year, month, day );
+    }
 
-/**
- * The event for the cells doubleclick.
- * @param {*} year The target year.
- * @param {*} month The target month.
- * @param {*} day The target date.
- */
-function ycalender_DoubleClick( year, month, day ){
-    window.NameSpace1.ycalendar.onDoubleClicked( year, month, day );
-}
+})();

@@ -42,7 +42,7 @@ class TableCreator{
         for( var i = 0; i < lastDayInMonth; i++ ){
             const classname = window.NameSpace1.createClassName( checkedDateList, new CheckDateEx( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
             txt += '<td class="' + classname + '">';
-            txt += '<div ondblclick="ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
+            txt += '<div ondblclick="window.NameSpace1.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
             txt += (i + 1);
             txt += '</div>';
             txt += '</td>';
