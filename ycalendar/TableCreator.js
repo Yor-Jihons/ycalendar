@@ -43,7 +43,7 @@
         createMainCells( mainDate, lastDayInMonth, checkedDateList ){
             let txt = "";
             for( var i = 0; i < lastDayInMonth; i++ ){
-                const classname = window.YCalendars.createClassName( checkedDateList, new window.YCalendars.CheckDateEx( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
+                const classname = window.YCalendars.createClassName( checkedDateList, new window.YCalendars.CheckedDateEx( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
                 txt += '<td class="' + classname + '">';
                 txt += '<div ondblclick="window.YCalendars.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
                 txt += (i + 1);
