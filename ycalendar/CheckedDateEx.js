@@ -3,7 +3,7 @@
 (function(){
     window.YCalendars = window.YCalendars || {};
 
-    window.YCalendars.CheckDateEx = class{
+    window.YCalendars.CheckedDateEx = class{
         #date;
 
         constructor( year, month, day ){

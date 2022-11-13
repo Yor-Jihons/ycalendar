@@ -4,7 +4,7 @@
 (function(){
     window.YCalendars = window.YCalendars || {};
 
-    window.YCalendars.CheckDateList = class{
+    window.YCalendars.CheckedDateList = class{
         #dateExs;
 
         constructor(){
