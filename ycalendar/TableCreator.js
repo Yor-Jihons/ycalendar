@@ -3,6 +3,9 @@
 (function(){
     window.YCalendars = window.YCalendars || {};
 
+    /**
+    * The class to make the html string as a calendar.
+    */
     window.YCalendars.TableCreator = class{
 
         /**
