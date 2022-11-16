@@ -1,3 +1,11 @@
+/**
+* @file
+* @license
+* Copyright (c) 2022 Yor-Jihons
+* Released under the MIT license.
+* https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE
+*/
+
 "use strict";
 
 (function(){
