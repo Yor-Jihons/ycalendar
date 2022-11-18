@@ -10,5 +10,5 @@ You can also color those cells, if you want.
 
 ## Contact
 
-// TODO: Write the message.
-
+Author: Yor-Jihons  
+GitHub: [ycalendar](https://github.com/Yor-Jihons/ycalendar)  
