@@ -23,7 +23,7 @@ Step 2. Include the js-files and the css-files.
     <script src="./ycalendar/ycalendar_main.js"></script>
     <link rel="stylesheet" href="./ycalendar/yc_styles.css" />
 ```
-* Caution: You definitely need to do as above.
+※ Caution: You definitely need to do as above.
 
 Step 3. You call the method draw (of the window.YCalendars.ycalendar).
 Its object is global which has already created.
@@ -54,6 +54,10 @@ Step 6. You call the method draw, again.
 ```
 window.YCalendars.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 ```
+
+## LICENCE
+
+This library is released under the MIT License. See also [LICENCE which included](./README.md) or [on GitHub](https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE).
 
 ## Contact
 
