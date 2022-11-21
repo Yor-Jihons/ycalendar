@@ -9,7 +9,6 @@ You can also color those cells, if you want.
 1. Put the directory "ycalendar" into your project directly.
 2. You can use this with the usage article.
 
-
 ## 2. Usage
 
 Step 1. Put the html tag as a ycalendar (the div tag which id is ycalendar).
