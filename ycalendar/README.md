@@ -4,7 +4,12 @@ This JavaScript library to show the calendar which you can double-click the cell
 If you double-click the number (as a date in the calendar), the double-click event raised.
 You can also color those cells, if you want.
 
-## Usage
+## 1. Install
+
+1. Put the directory "ycalendar" into your project directly.
+2. You can use this with the usage article.
+
+## 2. Usage
 
 Step 1. Put the html tag as a ycalendar (the div tag which id is ycalendar).
 
@@ -55,11 +60,13 @@ Step 6. You call the method draw, again.
 window.YCalendars.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 ```
 
-## LICENCE
+※ The sample is in the file "./index.html".
+
+## 3. LICENCE
 
 This library is released under the MIT License. See also [LICENCE which included](./README.md) or [on GitHub](https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE).
 
-## Contact
+## 4. Contact
 
 Author: Yor-Jihons  
 GitHub: [ycalendar](https://github.com/Yor-Jihons/ycalendar)  
