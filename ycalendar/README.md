@@ -6,6 +6,10 @@ You can also color those cells, if you want.
 
 ## 1. Install
 
+1. Put the directory "ycalendar" into your project directly.
+2. You can use this with the usage article.
+
+
 ## 2. Usage
 
 Step 1. Put the html tag as a ycalendar (the div tag which id is ycalendar).
@@ -63,7 +67,7 @@ window.YCalendars.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 
 This library is released under the MIT License. See also [LICENCE which included](./README.md) or [on GitHub](https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE).
 
-## Contact
+## 4. Contact
 
 Author: Yor-Jihons  
 GitHub: [ycalendar](https://github.com/Yor-Jihons/ycalendar)  
