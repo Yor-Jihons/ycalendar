@@ -32,17 +32,28 @@
     <link rel="stylesheet" href="./customized_yc_sytles.css" />
 
     <script>
+        /**
+        * The event you want to caught.
+        */
+        class YC_Event_Extended extends window.YCalendars.YC_Event{
+            /**
+            * The event when the cells double-clicked.
+            * @param {*} year The number which means the year.
+            * @param {*} month The number which means the month. It will be { 1, 2, 3, ..., 11, 12 }.
+            * @param {*} day The number which means the date. It will be { 1, 2, 3, ..., 11, 31 }.
+            */
+            onDoubleClicked( year, month, day ){
+                alert( "EVENT: ycalender_DoubleClick on " + year + "/" + month + "/" + day );
+            }
+        }
+    </script>
+
+    <script>
         window.YCalendars.ycalendar.draw( new Date() );
 
         var checkedDateList = new window.YCalendars.CheckedDateList();
         checkedDateList.add( new window.YCalendars.CheckedDateEx( 2022, 10, 7 ) );
         checkedDateList.add( new window.YCalendars.CheckedDateEx( 2022, 10, 8 ) );
-
-        class YC_Event_Extended extends window.YCalendars.YC_Event{
-            onDoubleClicked( year, month, day ){
-                alert( "EVENT: ycalender_DoubleClick on " + year + "/" + month + "/" + day );
-            }
-        }
 
         window.YCalendars.ycalendar.setEvent( new YC_Event_Extended() );
 
