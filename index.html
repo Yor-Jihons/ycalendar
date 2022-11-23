@@ -18,8 +18,10 @@
     </script>
     <h1>The ycalendar test</h1>
 
+    <!-- 1. You put div area with id="ycalendar". -->
     <div id="ycalendar"></div>
 
+    <!-- 2. You include the js-files and the css-file. -->
     <script src="./ycalendar/CheckedDateEx.js"></script>
     <script src="./ycalendar/CheckedDateList.js"></script>
     <script src="./ycalendar/util.js"></script>
@@ -29,6 +31,7 @@
     <script src="./ycalendar/ycalendar_main.js"></script>
     <link rel="stylesheet" href="./ycalendar/yc_styles.css" />
 
+    <!-- If you want to cumstomize the css, add the other css-file which you prepared. -->
     <link rel="stylesheet" href="./customized_yc_sytles.css" />
 
     <script>
@@ -49,18 +52,22 @@
     </script>
 
     <script>
-        window.YCalendars.ycalendar.draw( new Date() );
+        // 3. You draw the calendar simply. (If you want a simple calendar.)
+        //window.YCalendars.ycalendar.draw( new Date() );
 
+        // 4. Create an object of the class CheckedDateList if you want the double-click event.
         var checkedDateList = new window.YCalendars.CheckedDateList();
         checkedDateList.add( new window.YCalendars.CheckedDateEx( 2022, 10, 7 ) );
         checkedDateList.add( new window.YCalendars.CheckedDateEx( 2022, 10, 8 ) );
 
+        // 5. Set the event.
         window.YCalendars.ycalendar.setEvent( new YC_Event_Extended() );
 
+        // You can clear the dates in the CheckedDateList.
         // checkedDateList.clear();
 
+        // 6. You draw the calenadar.
         window.YCalendars.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
-
     </script>
 </body>
 </html>

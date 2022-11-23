@@ -31,7 +31,8 @@ Step 2. Include the js-files and the css-files.
 ※ Caution: You definitely need to do as above.
 
 Step 3. You call the method draw (of the window.YCalendars.ycalendar).
-Its object is global which has already created.
+Its object is global which has already created.  
+If you want a cumstomized ycalendar, you don't neeed this line.
 ```
 window.YCalendars.ycalendar.draw( new Date() );
 ```
