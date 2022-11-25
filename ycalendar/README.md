@@ -63,11 +63,27 @@ window.YCalendars.ycalendar.draw( new Date( 2022, 10, 1 ), checkedDateList );
 
 ※ The sample is in the file "./index.html".
 
-## 3. LICENCE
+## 3. Chanaging the color of the cells
+
+You can chage the color of the cells. If you want to do it, you have to override the css selectors.
+
+The css selectors (and/or properties) you can override is as follows.
+
+- color in h2#yc_title : The text color for the string as a title like "2022/10".
+- background-color in h2#yc_title : The background color for the string as a title like "2022/10".
+- color in table#yc_table : the text color for the table.
+- background-color in table#yc_table : the text color for the table.
+- color in th.yc_table_header : the text color for the table header.
+- background-color in th.yc_table_header : the text color for the table header.
+- color in td.yc_checked_day : the text color for the table as cells which is colored.
+- background-color in td.yc_checked_day : the text color for the table as cells which is colored.
+
+
+## 4. License
 
 This library is released under the MIT License. See also [LICENCE which included](./README.md) or [on GitHub](https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE).
 
-## 4. Contact
+## 5. Contact
 
 Author: Yor-Jihons  
 GitHub: [ycalendar](https://github.com/Yor-Jihons/ycalendar)  
