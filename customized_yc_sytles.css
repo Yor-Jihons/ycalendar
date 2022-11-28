@@ -1,4 +1,11 @@
 /*
+    @license
+    Copyright (c) 2022 Yor-Jihons
+    Released under the MIT license.
+    https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE
+*/
+
+/*
 td.yc_unchecked_day{
     background: pink;
 }
@@ -10,14 +17,17 @@ td.yc_checked_day{
 }
 */
 
-/*
+
 table#yc_table{
-    margin: 0 0 0 0;
+    background-color: white;
 }
-*/
 
 /*
 h2#yc_title{
     text-align: left;
 }
 */
+
+body{
+    background-color: gray;
+}

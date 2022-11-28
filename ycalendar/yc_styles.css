@@ -20,7 +20,6 @@ h2#yc_title{
 */
 table#yc_table{
     margin: 0 auto;
-    background-color: white;
     border-collapse: collapse;
 }
 
@@ -38,7 +37,6 @@ th.yc_table_header{
     The cells which is normal.
 */
 td.yc_unchecked_day{
-    background-color: white;
     border: 1px solid black;
     width: 50px;
     text-align: center;
