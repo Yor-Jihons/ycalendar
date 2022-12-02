@@ -83,11 +83,16 @@ The css selectors (and/or properties) you can override is as follows.
 
 This library is released under the MIT License. See also [LICENCE which included](./README.md) or [on GitHub](https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE).
 
-## 5. Changes
+## 5. Development Environment
 
-2022/11/27 : ycalendar 1.0.0 Released.
+- Language: JavaScript
 
-## 6. Contact
+## 6. Changes
+
+2022/11/27 : ver.1.0.0
+    - ycalendar ver.1.0.0 Released.
+
+## 7. Contact
 
 Author: Yor-Jihons  
 GitHub: [ycalendar](https://github.com/Yor-Jihons/ycalendar)  
